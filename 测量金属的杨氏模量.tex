@@ -1,0 +1,351 @@
+% !TeX program = xelatex
+\documentclass[11pt,a4paper]{article}
+\usepackage{xeCJK}
+\usepackage{fontspec}
+\usepackage{amsmath,amssymb}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{geometry}
+\geometry{left=25mm,right=25mm,top=25mm,bottom=25mm}
+
+\setCJKmainfont{SimSun} % 如果需要可更改为系统中可用的中文字体
+\setmainfont{Times New Roman}
+
+\title{测量金属的杨氏模量实验报告}
+\author{师翔宇\quad 2500011575}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\noindent 实验室给出 $g=\SI{9.801}{\meter\per\second\squared}$
+
+\section{CCD法}
+
+\subsection{质量}
+\begin{table}[h!]
+\centering
+\caption{质量测量（单位：g）}
+\begin{tabular}{@{}cccccccccc@{}}
+\toprule
+i & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\ \midrule
+$m/$g & 200.06 & 199.68 & 199.74 & 200.15 & 200.39 & 200.01 & 200.08 & 200.05 & 200.14 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+$m_0=\SI{0.05}{g}$,\quad $e=\SI{0.005}{g}$
+
+\[
+\sigma_{\text{电子天平}}=\SI{0.00288675}{g},\qquad \sigma_{\text{avrg}}=\SI{0.214126}{g}
+\]
+
+\[
+ m \pm \sigma_m = \SI{199.98 \pm 0.21}{g}
+\]
+
+\subsection{直径}
+\begin{table}[h!]
+\centering
+\caption{直径测量（单位：mm）}
+\begin{tabular}{@{}ccccccccccc@{}}
+\toprule
+i & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ \midrule
+$D/$mm & 0.329 & 0.322 & 0.325 & 0.324 & 0.325 & 0.326 & 0.326 & 0.329 & 0.330 & 0.328 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+$D_0=\SI{0.005}{mm}$,\quad $e=\SI{0.004}{mm}$
+
+\[
+\sigma_{\text{千分尺}}=\SI{0.0023094}{mm},\qquad \sigma_{\text{avrg}}=\SI{0.00254733}{mm}
+\]
+
+\[
+D \pm \sigma_D = \SI{0.321 \pm 0.003}{mm}
+\]
+
+\subsection{金属丝长度}
+\[
+L=\SI{78.00}{cm},\qquad e=\SI{0.15}{cm}
+\]
+\[
+L \pm \sigma_L = \SI{78.00 \pm 0.09}{cm}
+\]
+
+\subsection{伸长量}
+\begin{table}[h!]
+\centering
+\caption{CCD测量的伸长量（单位：mm）}
+\begin{tabular}{@{}cccc@{}}
+\toprule
+i & $m$/g & $r_i$/mm & $r_i'$/mm & $\bar r_i$/mm \\ \midrule
+0 & 0.00   & 2.03 & 2.00 & 2.015 \\
+1 & 200.01 & 2.21 & 2.29 & 2.250 \\
+2 & 399.64 & 2.42 & 2.40 & 2.410 \\
+3 & 599.33 & 2.58 & 2.55 & 2.565 \\
+4 & 799.43 & 2.63 & 2.65 & 2.640 \\
+5 & 999.77 & 2.82 & 2.82 & 2.820 \\
+6 & 1199.73 & 2.98 & 2.96 & 2.970 \\
+7 & 1399.76 & 3.08 & 3.10 & 3.090 \\
+8 & 1599.76 & 3.20 & 3.20 & 3.200 \\
+9 & 1799.85 & 3.31 & 3.31 & 3.310 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+将最小分度值 $\SI{0.05}{mm}$ 视为允差，得到
+\[
+\sigma_{\text{CCD}}=\SI{0.0288675}{mm}.
+\]
+
+\subsection{逐差法数据处理}
+注意到 $i=0$ 的数据线性不佳，可能是因为金属丝有弯折，故舍去，从 $i=1$ 的数据开始处理。
+
+\begin{table}[h!]
+\centering
+\caption{逐差法数据片段（单位：mm）}
+\begin{tabular}{@{}cccc@{}}
+\toprule
+i & 1 & 2 & 3 & 4 \\ \midrule
+$\delta\bar r_i$ & 0.570 & 0.560 & 0.525 & 0.560 \\
+$\delta L_i$ & 0.1425 & 0.14 & 0.13125 & 0.14 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\[
+\sigma_{\text{avrg}}=\SI{0.00493447}{mm},\qquad 
+\sigma_{\delta L}=\sqrt{\left(\frac{\sigma_{\text{CCD}}}{5}\right)^2+\sigma_{\text{avrg}}^2}=\SI{0.00759489}{mm}.
+\]
+
+\[
+\delta L \pm \sigma_{\delta L} = \SI{0.138 \pm 0.008}{mm}.
+\]
+
+根据公式：
+\[
+E=\frac{4 m g L}{\pi d^2 \delta L} = 1.3689\times 10^{11}\ \mathrm{Pa}.
+\]
+
+不确定度：
+\[
+\sigma_E = E\sqrt{\left(\frac{\sigma_m}{m}\right)^2+\left(\frac{\sigma_L}{L}\right)^2+\left(\frac{2\sigma_d}{d}\right)^2+\left(\frac{\sigma_{\delta L}}{\delta L}\right)^2}
+=0.083407\times 10^{11}\ \mathrm{Pa}.
+\]
+
+\[
+E \pm \sigma_E = (1.37 \pm 0.08)\times 10^{11}\ \mathrm{Pa}.
+\]
+
+\subsection{最小二乘法处理数据}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{CCD.png}
+\caption{CCD法图像}
+\end{figure}
+
+图像解析式：
+\[
+r = \frac{mgL}{\pi E d^2} + L,
+\]
+斜率 $k=\dfrac{gL}{\pi E d^2} = 6.6578\times 10^{-4}\ \mathrm{mm/g} = 6.6578\times 10^{-4}\ \mathrm{m/kg}.$
+
+由此得到
+\[
+E=\frac{4 g L}{\pi k d^2}=1.41884\times 10^{11}\ \mathrm{Pa}.
+\]
+
+\[
+\sigma_{k,A}=1.65463\times 10^{-5}\ \mathrm{m/kg},\qquad
+\sigma_{k,B}=\frac{e/\sqrt{3}}{\sqrt{\sum_1^9 (m_i-\bar m)^2}}=1.86325\times 10^{-5}\ \mathrm{m/kg},\
+\sigma_k=2.49189\times 10^{-5}\ \mathrm{m/kg}.
+\]
+
+\[
+\sigma_E=E\sqrt{\left(\frac{\sigma_L}{L}\right)^2+\left(\frac{2\sigma_d}{d}\right)^2+\left(\frac{\sigma_k}{k}\right)^2}
+=0.0593811\times 10^{11}\ \mathrm{Pa}.
+\]
+
+\[
+E \pm \sigma_E = (1.42 \pm 0.06)\times 10^{11}\ \mathrm{Pa}.
+\]
+
+\section{光杠杆法}
+
+\subsection{质量}
+\begin{table}[h!]
+\centering
+\caption{质量测量（光杠杆法，单位：g）}
+\begin{tabular}{@{}ccccccccccc@{}}
+\toprule
+i & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 \\ \midrule
+$m/$g & 199.55 & 199.83 & 199.73 & 199.82 & 200.07 & 199.88 & 199.96 & 199.80 & 199.98 & 199.90 & 200.07 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+$m_0=\SI{0.00}{g}$,\quad $m=\SI{199.872}{g}$.
+
+\subsection{直径}
+\begin{table}[h!]
+\centering
+\caption{直径测量（单位：mm）}
+\begin{tabular}{@{}cccccccccc@{}}
+\toprule
+i & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ \midrule
+$D/$mm & 0.329 & 0.322 & 0.325 & 0.324 & 0.325 & 0.326 & 0.326 & 0.329 & 0.330 & 0.328 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+$d_0=\SI{0.005}{mm}$,\quad $d=\SI{0.3221}{mm}$.
+
+\subsection{仪器参数}
+\[
+L=\SI{71.10}{cm},\quad D=\SI{8.80}{cm},\quad R=\SI{134.0}{cm}.
+\]
+
+\subsection{伸长量}
+\begin{table}[h!]
+\centering
+\caption{光杠杆法伸长量（单位：cm）}
+\begin{tabular}{@{}ccccc@{}}
+\toprule
+i & $m$/g & $r_i$/cm & $r_i'$/cm & $\bar r_i$/cm \\ \midrule
+0 & 0.00 & 2.94 & 2.97 & 2.955 \\
+1 & 199.55 & 2.60 & 2.61 & 2.605 \\
+2 & 399.38 & 2.26 & 2.26 & 2.260 \\
+3 & 599.11 & 1.91 & 1.93 & 1.920 \\
+4 & 798.93 & 1.60 & 1.59 & 1.595 \\
+5 & 999.00 & 1.26 & 1.26 & 1.260 \\
+6 & 1198.88 & 0.96 & 0.96 & 0.960 \\
+7 & 1398.84 & 0.61 & 0.62 & 0.615 \\
+8 & 1598.64 & 0.30 & 0.29 & 0.295 \\
+9 & 1798.62 & 0.01 & 0.00 & 0.005 \\
+10 & 1998.52 & -0.30 & -0.30 & -0.300 \\
+11 & 2198.59 & -0.61 & -0.61 & -0.610 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{逐差法处理}
+\begin{table}[h!]
+\centering
+\caption{逐差法（光杠杆）}
+\begin{tabular}{@{}ccccccc@{}}
+\toprule
+i & 1 & 2 & 3 & 4 & 5 & 6 \\ \midrule
+$l$ & -1.995 & -1.990 & -1.965 & -1.915 & -1.895 & -1.870 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+$l=\SI{0.323056}{cm}$
+
+依据公式：
+\[
+E=\frac{8 m g L R}{\pi d^2 D l} = \SI{1.61e11}{Pa}.
+\]
+
+\subsection{最小二乘法处理}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{光杠杆.png}
+\caption{光杠杆法图像}
+\end{figure}
+
+图像解析式：
+\[
+l = l_0 + \frac{8 g L R}{\pi d^2 D E} m,
+\]因此
+\[
+E=\frac{8 g L R}{\pi d^2 D k} = \SI{1.61e11}{Pa}.
+\]
+
+\section{金属梁法}
+
+注：由于时间原因，直接使用实验一已知质量的前6个砝码。
+
+\subsection{有效长度}
+\[
+l=\SI{25.00}{cm}.
+\]
+
+\subsection{宽度与厚度}
+\begin{table}[h!]
+\centering
+\caption{宽度 a（单位：mm）}
+\begin{tabular}{@{}ccc@{}}
+\toprule
+i & 1 & 2 & 3 \\ \midrule
+$a/$mm & 10.02 & 10.08 & 10.12 \\ \bottomrule
+\end{tabular}
+\end{table}
+\[
+a=\SI{10.0733}{mm}.
+\]
+
+\begin{table}[h!]
+\centering
+\caption{厚度 h（单位：mm）}
+\begin{tabular}{@{}ccccc@{}}
+\toprule
+i & 1 & 2 & 3 & 4 & 5 \\ \midrule
+$h/$mm & 1.652 & 1.661 & 1.620 & 1.688 & 1.619 \\ \bottomrule
+\end{tabular}
+\end{table}
+\[
+h=\SI{1.648}{mm}.
+\]
+
+\subsection{挠度}
+\begin{table}[h!]
+\centering
+\caption{挠度 $\lambda$（单位：mm）}
+\begin{tabular}{@{}ccc@{}}
+\toprule
+i & $m$/g & $\lambda$/mm \\ \midrule
+0 & 0.00 & 43.885 \\
+1 & 200.01 & 42.927 \\
+2 & 399.64 & 41.912 \\
+3 & 599.33 & 40.967 \\
+4 & 799.43 & 39.978 \\
+5 & 999.77 & 38.882 \\
+6 & 1199.73 & 37.950 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{逐差法数据处理}
+\begin{table}[h!]
+\centering
+\caption{逐差法（挠度，单位：mm）}
+\begin{tabular}{@{}ccc@{}}
+\toprule
+i & 1 & 2 & 3 \\ \midrule
+$\delta\lambda$/mm & 3.907 & 4.045 & 3.962 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\[
+\lambda=\SI{0.992833}{mm}.
+\]
+
+由公式：
+\[
+E=\frac{m g l^3}{4 \lambda a h^3} = \SI{1.71e11}{Pa}.
+\]
+
+\subsection{最小二乘法处理}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{金属梁.png}
+\caption{金属梁法图像}
+\end{figure}
+
+图像解析式：
+\[
+\lambda=\lambda_0+\frac{g l^3}{4 a E h^3} m,
+\]从拟合系数 $k$ 得到
+\[
+E=\frac{g l^3}{4 a k h^3} = \SI{1.71e11}{Pa}.
+\]
+
+\bigskip
+\noindent 完成。
+\end{document}
