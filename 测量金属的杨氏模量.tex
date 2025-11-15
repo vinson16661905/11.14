@@ -1,7 +1,5 @@
 % !TeX program = xelatex
-\documentclass[11pt,a4paper]{article}
-\usepackage{xeCJK}
-\usepackage{fontspec}
+\documentclass[11pt,a4paper]{ctexart}
 \usepackage{amsmath,amssymb}
 \usepackage{siunitx}
 \usepackage{booktabs}
@@ -10,7 +8,6 @@
 \usepackage{geometry}
 \geometry{left=25mm,right=25mm,top=25mm,bottom=25mm}
 
-\setCJKmainfont{SimSun} % 如果需要可更改为系统中可用的中文字体
 \setmainfont{Times New Roman}
 
 \title{测量金属的杨氏模量实验报告}
@@ -28,8 +25,7 @@
 \begin{table}[h!]
 \centering
 \caption{质量测量（单位：g）}
-\begin{tabular}{@{}cccccccccc@{}}
-\toprule
+\begin{tabular}{@{}cccccccccc@{}}\toprule
 i & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\ \midrule
 $m/$g & 200.06 & 199.68 & 199.74 & 200.15 & 200.39 & 200.01 & 200.08 & 200.05 & 200.14 \\ \bottomrule
 \end{tabular}
@@ -42,15 +38,14 @@ $m_0=\SI{0.05}{g}$,\quad $e=\SI{0.005}{g}$
 \]
 
 \[
- m \pm \sigma_m = \SI{199.98 \pm 0.21}{g}
+m \pm \sigma_m = \SI{199.98 \pm 0.21}{g}
 \]
 
 \subsection{直径}
 \begin{table}[h!]
 \centering
 \caption{直径测量（单位：mm）}
-\begin{tabular}{@{}ccccccccccc@{}}
-\toprule
+\begin{tabular}{@{}ccccccccccc@{}}\toprule
 i & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ \midrule
 $D/$mm & 0.329 & 0.322 & 0.325 & 0.324 & 0.325 & 0.326 & 0.326 & 0.329 & 0.330 & 0.328 \\ \bottomrule
 \end{tabular}
@@ -78,8 +73,7 @@ L \pm \sigma_L = \SI{78.00 \pm 0.09}{cm}
 \begin{table}[h!]
 \centering
 \caption{CCD测量的伸长量（单位：mm）}
-\begin{tabular}{@{}cccc@{}}
-\toprule
+\begin{tabular}{@{}cccc@{}}\toprule
 i & $m$/g & $r_i$/mm & $r_i'$/mm & $\bar r_i$/mm \\ \midrule
 0 & 0.00   & 2.03 & 2.00 & 2.015 \\
 1 & 200.01 & 2.21 & 2.29 & 2.250 \\
@@ -105,8 +99,7 @@ i & $m$/g & $r_i$/mm & $r_i'$/mm & $\bar r_i$/mm \\ \midrule
 \begin{table}[h!]
 \centering
 \caption{逐差法数据片段（单位：mm）}
-\begin{tabular}{@{}cccc@{}}
-\toprule
+\begin{tabular}{@{}cccc@{}}\toprule
 i & 1 & 2 & 3 & 4 \\ \midrule
 $\delta\bar r_i$ & 0.570 & 0.560 & 0.525 & 0.560 \\
 $\delta L_i$ & 0.1425 & 0.14 & 0.13125 & 0.14 \\ \bottomrule
@@ -148,7 +141,7 @@ E \pm \sigma_E = (1.37 \pm 0.08)\times 10^{11}\ \mathrm{Pa}.
 \[
 r = \frac{mgL}{\pi E d^2} + L,
 \]
-斜率 $k=\dfrac{gL}{\pi E d^2} = 6.6578\times 10^{-4}\ \mathrm{mm/g} = 6.6578\times 10^{-4}\ \mathrm{m/kg}.$
+斜率 $k=\dfrac{gL}{\pi E d^2} = 6.6578\times 10^{-4}\ \mathrm{mm/g} = 6.6578\times 10^{-4}\ \mathrm{m/kg}$.
 
 由此得到
 \[
@@ -157,7 +150,9 @@ E=\frac{4 g L}{\pi k d^2}=1.41884\times 10^{11}\ \mathrm{Pa}.
 
 \[
 \sigma_{k,A}=1.65463\times 10^{-5}\ \mathrm{m/kg},\qquad
-\sigma_{k,B}=\frac{e/\sqrt{3}}{\sqrt{\sum_1^9 (m_i-\bar m)^2}}=1.86325\times 10^{-5}\ \mathrm{m/kg},\
+\sigma_{k,B}=\frac{e/\sqrt{3}}{\sqrt{\sum_1^9 (m_i-\bar m)^2}}=1.86325\times 10^{-5}\ \mathrm{m/kg},
+\]
+\[
 \sigma_k=2.49189\times 10^{-5}\ \mathrm{m/kg}.
 \]
 
@@ -176,8 +171,7 @@ E \pm \sigma_E = (1.42 \pm 0.06)\times 10^{11}\ \mathrm{Pa}.
 \begin{table}[h!]
 \centering
 \caption{质量测量（光杠杆法，单位：g）}
-\begin{tabular}{@{}ccccccccccc@{}}
-\toprule
+\begin{tabular}{@{}ccccccccccc@{}}\toprule
 i & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 \\ \midrule
 $m/$g & 199.55 & 199.83 & 199.73 & 199.82 & 200.07 & 199.88 & 199.96 & 199.80 & 199.98 & 199.90 & 200.07 \\ \bottomrule
 \end{tabular}
@@ -189,8 +183,7 @@ $m_0=\SI{0.00}{g}$,\quad $m=\SI{199.872}{g}$.
 \begin{table}[h!]
 \centering
 \caption{直径测量（单位：mm）}
-\begin{tabular}{@{}cccccccccc@{}}
-\toprule
+\begin{tabular}{@{}cccccccccc@{}}\toprule
 i & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ \midrule
 $D/$mm & 0.329 & 0.322 & 0.325 & 0.324 & 0.325 & 0.326 & 0.326 & 0.329 & 0.330 & 0.328 \\ \bottomrule
 \end{tabular}
@@ -207,8 +200,7 @@ L=\SI{71.10}{cm},\quad D=\SI{8.80}{cm},\quad R=\SI{134.0}{cm}.
 \begin{table}[h!]
 \centering
 \caption{光杠杆法伸长量（单位：cm）}
-\begin{tabular}{@{}ccccc@{}}
-\toprule
+\begin{tabular}{@{}ccccc@{}}\toprule
 i & $m$/g & $r_i$/cm & $r_i'$/cm & $\bar r_i$/cm \\ \midrule
 0 & 0.00 & 2.94 & 2.97 & 2.955 \\
 1 & 199.55 & 2.60 & 2.61 & 2.605 \\
@@ -229,8 +221,7 @@ i & $m$/g & $r_i$/cm & $r_i'$/cm & $\bar r_i$/cm \\ \midrule
 \begin{table}[h!]
 \centering
 \caption{逐差法（光杠杆）}
-\begin{tabular}{@{}ccccccc@{}}
-\toprule
+\begin{tabular}{@{}ccccccc@{}}\toprule
 i & 1 & 2 & 3 & 4 & 5 & 6 \\ \midrule
 $l$ & -1.995 & -1.990 & -1.965 & -1.915 & -1.895 & -1.870 \\ \bottomrule
 \end{tabular}
@@ -253,7 +244,8 @@ E=\frac{8 m g L R}{\pi d^2 D l} = \SI{1.61e11}{Pa}.
 图像解析式：
 \[
 l = l_0 + \frac{8 g L R}{\pi d^2 D E} m,
-\]因此
+\]
+因此
 \[
 E=\frac{8 g L R}{\pi d^2 D k} = \SI{1.61e11}{Pa}.
 \]
@@ -271,8 +263,7 @@ l=\SI{25.00}{cm}.
 \begin{table}[h!]
 \centering
 \caption{宽度 a（单位：mm）}
-\begin{tabular}{@{}ccc@{}}
-\toprule
+\begin{tabular}{@{}ccc@{}}\toprule
 i & 1 & 2 & 3 \\ \midrule
 $a/$mm & 10.02 & 10.08 & 10.12 \\ \bottomrule
 \end{tabular}
@@ -284,8 +275,7 @@ a=\SI{10.0733}{mm}.
 \begin{table}[h!]
 \centering
 \caption{厚度 h（单位：mm）}
-\begin{tabular}{@{}ccccc@{}}
-\toprule
+\begin{tabular}{@{}ccccc@{}}\toprule
 i & 1 & 2 & 3 & 4 & 5 \\ \midrule
 $h/$mm & 1.652 & 1.661 & 1.620 & 1.688 & 1.619 \\ \bottomrule
 \end{tabular}
@@ -298,8 +288,7 @@ h=\SI{1.648}{mm}.
 \begin{table}[h!]
 \centering
 \caption{挠度 $\lambda$（单位：mm）}
-\begin{tabular}{@{}ccc@{}}
-\toprule
+\begin{tabular}{@{}ccc@{}}\toprule
 i & $m$/g & $\lambda$/mm \\ \midrule
 0 & 0.00 & 43.885 \\
 1 & 200.01 & 42.927 \\
@@ -315,8 +304,7 @@ i & $m$/g & $\lambda$/mm \\ \midrule
 \begin{table}[h!]
 \centering
 \caption{逐差法（挠度，单位：mm）}
-\begin{tabular}{@{}ccc@{}}
-\toprule
+\begin{tabular}{@{}ccc@{}}\toprule
 i & 1 & 2 & 3 \\ \midrule
 $\delta\lambda$/mm & 3.907 & 4.045 & 3.962 \\ \bottomrule
 \end{tabular}
@@ -341,7 +329,8 @@ E=\frac{m g l^3}{4 \lambda a h^3} = \SI{1.71e11}{Pa}.
 图像解析式：
 \[
 \lambda=\lambda_0+\frac{g l^3}{4 a E h^3} m,
-\]从拟合系数 $k$ 得到
+\]
+从拟合系数 $k$ 得到
 \[
 E=\frac{g l^3}{4 a k h^3} = \SI{1.71e11}{Pa}.
 \]
