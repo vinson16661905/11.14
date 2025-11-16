@@ -6,9 +6,8 @@
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage{geometry}
-\geometry{left=25mm,right=25mm,top=25mm,bottom=25mm}
-
-\setmainfont{Times New Roman}
+\usepackage{float}
+\geometry{left=25mm,right=25mm,top=20mm,bottom=20mm}
 
 \title{测量金属的杨氏模量实验报告}
 \author{师翔宇\quad 2500011575}
@@ -94,7 +93,7 @@ i & $m$/g & $r_i$/mm & $r_i'$/mm & $\bar r_i$/mm \\ \midrule
 \]
 
 \subsection{逐差法数据处理}
-注意到 $i=0$ 的数据线性不佳，可能是因为金属丝有弯折，故舍去，从 $i=1$ 的数据开始处理。
+注意到 $i=0$ 的数据线性不佳，可能是因为金属丝有弯折因而在最初加砝码时被拉直，伸长量偏大，故舍去，从 $i=1$ 的数据开始处理。
 
 \begin{table}[h!]
 \centering
@@ -106,13 +105,19 @@ $\delta L_i$ & 0.1425 & 0.14 & 0.13125 & 0.14 \\ \bottomrule
 \end{tabular}
 \end{table}
 
+考虑其B类不确定度，两项相减，不确定度乘$\sqrt{2}$,之后4个差值取平均，不确定度除以$\sqrt{4}$
+
 \[
-\sigma_{\text{avrg}}=\SI{0.00493447}{mm},\qquad 
-\sigma_{\delta L}=\sqrt{\left(\frac{\sigma_{\text{CCD}}}{5}\right)^2+\sigma_{\text{avrg}}^2}=\SI{0.00759489}{mm}.
+\sigma_B = \frac{\sqrt{2}}{2} \sigma_{CCD} = \SI{0.0204124}{mm}.
 \]
 
 \[
-\delta L \pm \sigma_{\delta L} = \SI{0.138 \pm 0.008}{mm}.
+\sigma_{\text{avrg}}=\SI{0.00493447}{mm},\qquad 
+\sigma_{\delta L}=\sqrt{\left(\frac{\sigma_{\text{CCD}}}{5}\right)^2+\sigma_{\text{avrg}}^2}=\SI{0.00640435}{mm}.
+\]
+
+\[
+\delta L \pm \sigma_{\delta L} = \SI{0.138 \pm 0.006}{mm}.
 \]
 
 根据公式：
@@ -123,11 +128,11 @@ E=\frac{4 m g L}{\pi d^2 \delta L} = 1.3689\times 10^{11}\ \mathrm{Pa}.
 不确定度：
 \[
 \sigma_E = E\sqrt{\left(\frac{\sigma_m}{m}\right)^2+\left(\frac{\sigma_L}{L}\right)^2+\left(\frac{2\sigma_d}{d}\right)^2+\left(\frac{\sigma_{\delta L}}{\delta L}\right)^2}
-=0.083407\times 10^{11}\ \mathrm{Pa}.
+=0.0685208\times 10^{11}\ \mathrm{Pa}.
 \]
 
 \[
-E \pm \sigma_E = (1.37 \pm 0.08)\times 10^{11}\ \mathrm{Pa}.
+E \pm \sigma_E = (1.37 \pm 0.07)\times 10^{11}\ \mathrm{Pa}.
 \]
 
 \subsection{最小二乘法处理数据}
@@ -139,7 +144,7 @@ E \pm \sigma_E = (1.37 \pm 0.08)\times 10^{11}\ \mathrm{Pa}.
 
 图像解析式：
 \[
-r = \frac{mgL}{\pi E d^2} + L,
+r = \frac{mgL}{\pi E d^2} + L_0,
 \]
 斜率 $k=\dfrac{gL}{\pi E d^2} = 6.6578\times 10^{-4}\ \mathrm{mm/g} = 6.6578\times 10^{-4}\ \mathrm{m/kg}$.
 
@@ -170,7 +175,7 @@ E \pm \sigma_E = (1.42 \pm 0.06)\times 10^{11}\ \mathrm{Pa}.
 \subsection{质量}
 \begin{table}[h!]
 \centering
-\caption{质量测量（光杠杆法，单位：g）}
+\caption{质量测量（单位：g）}
 \begin{tabular}{@{}cccccccccccc@{}}\toprule
 i & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 \\ \midrule
 $m/$g & 199.55 & 199.83 & 199.73 & 199.82 & 200.07 & 199.88 & 199.96 & 199.80 & 199.98 & 199.90 & 200.07 \\ \bottomrule
@@ -197,7 +202,7 @@ L=\SI{71.10}{cm},\quad D=\SI{8.80}{cm},\quad R=\SI{134.0}{cm}.
 \]
 
 \subsection{伸长量}
-\begin{table}[h!]
+\begin{table}[H]
 \centering
 \caption{光杠杆法伸长量（单位：cm）}
 \begin{tabular}{@{}ccccc@{}}\toprule
@@ -220,7 +225,7 @@ i & $m$/g & $r_i$/cm & $r_i'$/cm & $\bar r_i$/cm \\ \midrule
 \subsection{逐差法处理}
 \begin{table}[h!]
 \centering
-\caption{逐差法（光杠杆）}
+\caption{逐差法数据片段（单位：cm）}
 \begin{tabular}{@{}ccccccc@{}}\toprule
 i & 1 & 2 & 3 & 4 & 5 & 6 \\ \midrule
 $l$ & -1.995 & -1.990 & -1.965 & -1.915 & -1.895 & -1.870 \\ \bottomrule
@@ -235,9 +240,9 @@ E=\frac{8 m g L R}{\pi d^2 D l} = \SI{1.61e11}{Pa}.
 \]
 
 \subsection{最小二乘法处理}
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
-\includegraphics[width=0.6\textwidth]{光杠杆.png}
+\includegraphics[width=0.6\textwidth]{OpticalLever.png}
 \caption{光杠杆法图像}
 \end{figure}
 
@@ -262,7 +267,7 @@ l=\SI{25.00}{cm}.
 \subsection{宽度与厚度}
 \begin{table}[h!]
 \centering
-\caption{宽度 a（单位：mm）}
+\caption{宽度（单位：mm）}
 \begin{tabular}{@{}cccc@{}}\toprule
 i & 1 & 2 & 3 \\ \midrule
 $a/$mm & 10.02 & 10.08 & 10.12 \\ \bottomrule
@@ -274,7 +279,7 @@ a=\SI{10.0733}{mm}.
 
 \begin{table}[h!]
 \centering
-\caption{厚度 h（单位：mm）}
+\caption{厚度（单位：mm）}
 \begin{tabular}{@{}cccccc@{}}\toprule
 i & 1 & 2 & 3 & 4 & 5 \\ \midrule
 $h/$mm & 1.652 & 1.661 & 1.620 & 1.688 & 1.619 \\ \bottomrule
@@ -287,7 +292,7 @@ h=\SI{1.648}{mm}.
 \subsection{挠度}
 \begin{table}[h!]
 \centering
-\caption{挠度 $\lambda$（单位：mm）}
+\caption{挠度（单位：mm）}
 \begin{tabular}{@{}ccc@{}}\toprule
 i & $m$/g & $\lambda$/mm \\ \midrule
 0 & 0.00 & 43.885 \\
@@ -303,7 +308,7 @@ i & $m$/g & $\lambda$/mm \\ \midrule
 \subsection{逐差法数据处理}
 \begin{table}[h!]
 \centering
-\caption{逐差法（挠度，单位：mm）}
+\caption{逐差法数据片段（单位：mm）}
 \begin{tabular}{@{}cccc@{}}\toprule
 i & 1 & 2 & 3 \\ \midrule
 $\delta\lambda$/mm & 3.907 & 4.045 & 3.962 \\ \bottomrule
@@ -322,7 +327,7 @@ E=\frac{m g l^3}{4 \lambda a h^3} = \SI{1.71e11}{Pa}.
 \subsection{最小二乘法处理}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.6\textwidth]{金属梁.png}
+\includegraphics[width=0.6\textwidth]{MetalBeam.png}
 \caption{金属梁法图像}
 \end{figure}
 
